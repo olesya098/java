@@ -46,13 +46,14 @@ public class Calculator {
 
     public double calculate3(double a, double x, double b) {
         double result = 1;
-        double factorial = (a * x / b);
-        if (factorial == 0 || factorial == 1) {
-            return result;
-        }
-        for (int i = 1; i <= factorial; i++) {
-            result = result * i;
+        if (b != 0) {
+            double factorial = (a * x / b);
+            for (int i = 1; i <= factorial; i++) {
+                result *= i;
+            }
+        } else {
+            System.out.println("Ошибка: деление на ноль!");
+            return 0;
         }
         return result;
     }
-}
