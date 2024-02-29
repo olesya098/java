@@ -70,7 +70,7 @@ class Book {
             read(person, book, car);
         }
 
-        public static void read(Person person, Book book, Car car) {
+        public static void read(Person person, Book book, Car car) {//вызывает метод read() с передачей объектов person, book и car в качестве параметров.
             System.out.println(person.Name1 + " читает книгу '" + book.title + "' про машину '" + car.marca + "'");
         }
     }
