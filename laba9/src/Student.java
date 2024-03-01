@@ -34,9 +34,6 @@ public class Student {
     public String getDate() {//Адрес(чтение)
         return Date;
     }
-    public void Date(String Date) {
-        this.Date = Date;
-    }
 
     public String getAddress() {//Адрес(чтение)
         return address;
@@ -65,9 +62,9 @@ public class Student {
     public static void main(String[] args) {
         // Создаем массив из трех объектов Student
         Student[] students = new Student[3];
-        students[0] = new Student("Иванов Иван Васильевич", "2020", "ул. Ленина, 1", "1234567890", 1, "Информатика");
-        students[1] = new Student("Петров Иван Петрович", "2019", "ул. Пушкина, 2", "0987654321", 2, "Математика");
-        students[2] = new Student("Сидоров Даниил Владимирович", "2020", "ул. Гагарина, 3", "9876543210", 1, "Физика");
+        students[0] = new Student("Иванов Иван Васильевич", "01.02.2020", "ул. Ленина, 1", "1234567890", 1, "Информатика");
+        students[1] = new Student("Петров Иван Петрович", "02.04.2019", "ул. Пушкина, 2", "0987654321", 2, "Математика");
+        students[2] = new Student("Сидоров Даниил Владимирович", "04.05.2020", "ул. Гагарина, 3", "9876543210", 1, "Физика");
 
         // а)
         System.out.println("ФИО всех студентов:");
@@ -85,11 +82,12 @@ public class Student {
         }
 
         // в)
-        String Year = "2020";
-        System.out.println("Список студентов, поступивших после " + Year + " года:");
-        for (Student student : students) {
-            if (student.getDate().equals(Year)) {
-                System.out.println(student.getName());
+        int Year = 2020;
+        System.out.println("\nСписок студентов, поступивших после " + Year + " года:");//Вывод списка студентов, поступивших после заданного года
+        for (Student student : students) {// Цикл, который проходит по всем объектам Student в массиве students
+            int postupYear = Integer.parseInt(student.getDate().split("\\.")[2]);
+            if (postupYear > Year) {
+                System.out.println(student.getName());// Вывод ФИО студента, если год поступления больше заданного года (poiskYear)
             }
         }
     }
