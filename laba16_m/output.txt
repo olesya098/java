@@ -1,0 +1,30 @@
+
+
+public class laba16_m {
+    public static void main(String[] args) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("input.txt"));
+             BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"))) {
+
+            
+            String regex = "(\\/\\/.*$)|(\\/\\*.*?\\*\\/)";
+
+            Pattern pattern = Pattern.compile(regex);
+
+            String l;
+            while ((l = reader.readLine()) != null) {
+                
+                Matcher matcher = pattern.matcher(l);
+                l = matcher.replaceAll("");
+
+                
+                if (!l.trim().isEmpty()) {
+                    writer.write(l);
+                    writer.newLine();
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Произошла ошибка ввода-вывода " + e.getMessage());
+        }
+   System.out.println("Удаление комментариев выполнено успешно.");
+    }
+}
